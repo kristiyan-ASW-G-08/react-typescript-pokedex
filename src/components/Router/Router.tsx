@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Grid from '../../styled/Grid'
 import Loader from '../../styled/Loader';
 import Navbar from '../Navbar/Navbar'
-// const ExpenseForm = lazy(() => import('./ExpenseForm/ExpenseForm'));
+const PokemonPage = lazy(() => import('../PokemonPage/PokemonPage'));
 const Pokedex = lazy(() => import('../Pokedex/Pokedex'));
 const Router: FunctionComponent = () => {
   return (
@@ -20,16 +20,16 @@ const Router: FunctionComponent = () => {
                     </Suspense>
                   )}
                 />
-              {/* <Route
+              <Route
               exact
-                  path="/add-expense"
+                  path="/pokemon/:pokemonName"
                   render={() => (
                     <Suspense fallback={<Loader />}>
-                      <ExpenseForm />
+                      <PokemonPage />
                     </Suspense>
                   )}
                 />
-              */}
+             
               </Switch>
           </>
         </BrowserRouter>)

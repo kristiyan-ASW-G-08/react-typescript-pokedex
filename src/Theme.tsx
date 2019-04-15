@@ -10,7 +10,11 @@ const theme ={
     colors:{
         primary:"#EF5350",
         dark:"rgb(56, 56, 56)",
-        light:"#ffffff"
+        white:"#ffffff"
+    },
+    mediaQueries:{
+    medium:"(min-width:700px)",
+    large:"(min-width:1000px)",
     }
    
 }

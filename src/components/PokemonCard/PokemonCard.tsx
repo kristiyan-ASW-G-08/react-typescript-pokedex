@@ -9,12 +9,11 @@ interface PokemonCardProps extends Pokemon {
 }
 const PokemonCard: FunctionComponent<PokemonCardProps> = observer(({name,url}) => {
   const id = getId(url)
-  console.log(id)
     return (
       <StyledPokemonCard>
           <Link to={`/pokemon/${name}`}>
           <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name}/>
-          <h1>{name}</h1>
+          <h3>{name}</h3>
           </Link>
       </StyledPokemonCard>
    

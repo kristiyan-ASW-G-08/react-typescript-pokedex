@@ -7,4 +7,10 @@ import styled from 'styled-components'
     align-content:center;
     justify-items:center;
     grid-gap:1rem;
+    @media ${props => props.theme.mediaQueries.medium} {
+    grid-template-columns:1fr 1fr;
+  }
+  @media ${props => props.theme.mediaQueries.large} {
+    grid-template-columns:repeat(4,1fr);
+  }
  `

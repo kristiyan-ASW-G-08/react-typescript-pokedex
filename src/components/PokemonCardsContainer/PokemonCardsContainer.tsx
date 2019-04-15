@@ -9,7 +9,6 @@ interface PokemonCardsContainerProps{
   pokedex:Pokemon[]
 }
 const PokemonCardsContainer: FunctionComponent<PokemonCardsContainerProps> = observer(({pokedex}) => {
-  console.log(pokedex)
   return (
     <StyledPokemonCardsContainer>
     {pokedex.map(pokemon => <PokemonCard  key={pokemon.name} name={pokemon.name} url={pokemon.url}/>)}

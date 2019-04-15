@@ -10,13 +10,14 @@ const Pokedex: FunctionComponent = observer(() => {
   const { pokedexStore } = useContext(RootStoreContext);
  const [pokedex,setPokedex] = useState<Pokemon[]>([])
   useEffect(() => {
-      pokedexStore.incrementPage(setPokedex);
+      pokedexStore.getCurrentPage(setPokedex);
   },[pokedexStore.pokedexPage.length === 0])
   return (
     <>
     {pokedex && pokedex.length > 0 ? <Suspense fallback={<Loader/>}><PokemonCardsContainer pokedex={pokedex} /></Suspense> : <Loader/>}
     <ButtonsContainer>
-
+    { pokedexStore.previousUrl !== '' ? <Button onClick={() => {pokedexStore.decrementPage(); pokedexStore.getCurrentPage(setPokedex)}}>Previous </Button> :''}
+      { pokedexStore.nextUrl !== '' ? <Button onClick={() => {pokedexStore.incrementPage(); pokedexStore.getCurrentPage(setPokedex)}}>Next </Button> :''}
     </ButtonsContainer>
     </>
   )
