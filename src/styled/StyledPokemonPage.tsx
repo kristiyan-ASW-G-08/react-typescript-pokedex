@@ -1,15 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
- export default  styled.div`
+export default styled.div`
+   width:100vw;
+   padding:1rem;
+  ${props => props.theme.mixins.center}
   display:grid;
-  justify-items:center;
-  align-content:center;
-  .container{
-  display:grid;
-  justify-items:center;
-  align-content:center;
-  .id{
-      color:
-  }
-  }
- `
+  grid-template-columns: 1fr;
+`;
