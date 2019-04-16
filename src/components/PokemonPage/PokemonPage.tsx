@@ -7,7 +7,7 @@ import Stat from '../../styled/Stat';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Card from '../../styled/Card';
 import Image from '../../styled/Image';
-import TypesContainer from './TypesContainer/TypesContainer'
+import TypesContainer from './TypesContainer/TypesContainer';
 interface MatchProps {
   pokemonName: string;
 }
@@ -34,8 +34,9 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
             <h1 className="name">{pokemonName}</h1>
             <Stat>Weight :{pokemon.weight}</Stat>
             <Stat>Height :{pokemon.height}</Stat>
+            <TypesContainer types={pokemon.types} />
           </Card>
-          <Card>
+          <Card grid={true}>
             {Object.entries(pokemon.sprites).map(sprite => {
               if (sprite[1]) {
                 const spriteName = sprite[0].split('_').join(' ');
@@ -52,7 +53,7 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
               }
             })}
           </Card>
-          <TypesContainer types={pokemon.types}/>
+  
         </StyledPokemonPage>
       ) : (
         <Loader />

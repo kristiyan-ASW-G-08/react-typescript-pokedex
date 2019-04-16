@@ -7,4 +7,10 @@ export default styled.div`
     object-fit:cover;
     width:70%;
   }
+  @media ${props => props.theme.mediaQueries.large} {
+    width:10rem;
+    img {
+    width:90%;
+  }
+  }
 `;
