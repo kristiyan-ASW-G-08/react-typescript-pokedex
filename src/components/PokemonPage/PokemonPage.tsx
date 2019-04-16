@@ -21,7 +21,7 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
       console.log(data);
       setPokemon(data);
     });
-  }, []);
+  },[]);
   return (
     <>
       {pokemon ? (
@@ -40,8 +40,6 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
             {Object.entries(pokemon.sprites).map(sprite => {
               if (sprite[1]) {
                 const spriteName = sprite[0].split('_').join(' ');
-                console.log(spriteName);
-                console.log(typeof sprite[1]);
                 return (
                   <Fragment key={sprite[0]}>
                     <Image>
@@ -53,7 +51,6 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
               }
             })}
           </Card>
-  
         </StyledPokemonPage>
       ) : (
         <Loader />

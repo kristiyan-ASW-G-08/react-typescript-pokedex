@@ -1,13 +1,13 @@
-import React,{FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import NavItem from './NavItem';
-import StyledNavbar from '../../styled/StyledNavbar'
+import StyledNavbar from '../../styled/StyledNavbar';
+import SearchBar from '../SearchBar/SearchBar';
 const Navbar: FunctionComponent = () => {
   return (
-     <StyledNavbar>
-     <NavItem pathname={'/'} linkContent={'Home'}/>
-     <NavItem pathname={'/add-expense'} linkContent={'Add expense'}/>
-     </StyledNavbar>
-  )
+    <StyledNavbar>
+      <SearchBar />
+    </StyledNavbar>
+  );
 };
 
 export default Navbar;
