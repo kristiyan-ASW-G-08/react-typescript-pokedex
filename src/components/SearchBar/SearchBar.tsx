@@ -8,29 +8,29 @@ import React, {
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Button from '../../styled/Button';
 import getData from '../../util/getData';
+import StyledInput from '../../styled/StyledInput';
+import SearchBarButton from '../../styled/SearchBarButton';
 const SearchBar: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const [pokemonName, setPokemonName] = useState<string>('');
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    getData(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-    .then(data => {
-        if(data){
-              history.push(`/pokemon/${pokemonName}`);
-        }
-    })
-
+    getData(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(data => {
+      if (data) {
+        history.push(`/pokemon/${pokemonName}`);
+      }
+    });
   };
   return (
     <form onSubmit={submitHandler}>
-      <input
+      <StyledInput
         className="input"
         type="text"
-        placeholder="Choose how many questions you want to answer!"
+        placeholder="Pokemon Name"
         onChange={e => setPokemonName(e.target.value)}
         value={pokemonName}
         required
       />
-      <Button>Search</Button>
+      <SearchBarButton>Search</SearchBarButton>
     </form>
   );
 };
