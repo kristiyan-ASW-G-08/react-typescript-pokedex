@@ -1,7 +1,6 @@
 import ModalState from '../interfaces/ModalState';
 const defaultModalState: ModalState = {
   on: false,
-  title: '',
-  Component: null
+  text: ''
 };
 export default defaultModalState;

@@ -1,6 +1,5 @@
 interface ModalState {
-  title: string;
+  text: string;
   on: boolean;
-  Component: null | JSX.Element;
 }
 export default ModalState;

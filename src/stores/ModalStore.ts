@@ -6,12 +6,10 @@ import defaultModalState from './defaultModalState';
 class ModalStore {
   @observable public modalState: ModalState = {
     on: false,
-    Component: null,
-    title: ''
+    text: ''
   };
-  @action public setModalState(Component: JSX.Element, title: string): void {
-    this.modalState.Component = Component;
-    this.modalState.title = title;
+  @action public setModalState(text: string): void {
+    this.modalState.text = text;
     this.modalState.on = true;
   }
   @action public resetModalState(): void {
