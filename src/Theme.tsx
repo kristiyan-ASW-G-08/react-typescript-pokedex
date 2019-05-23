@@ -1,5 +1,4 @@
 import React, { FunctionComponent, ElementType } from 'react';
-import logo from './logo.svg';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 
