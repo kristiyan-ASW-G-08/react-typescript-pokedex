@@ -1,12 +1,22 @@
-import React, { FunctionComponent, useContext, useState } from 'react';
+import React, { FunctionComponent, useContext, useEffect } from 'react';
 import StyledNavbar from '../../styled/StyledNavbar';
 import { observer } from 'mobx-react-lite';
 import RootStoreContext from '../../stores/RootStore';
+import StyledModal from '../../styled/StyledModal';
 const Modal: FunctionComponent = observer(() => {
   const { modalStore } = useContext(RootStoreContext);
+  useEffect(() => {
+    setTimeout(() => {
+      modalStore.resetModalState();
+    }, 2000);
+  });
   return (
     <>
-      {modalStore.modalState.on ? <div>{modalStore.modalState.text}</div> : ''}
+      {modalStore.modalState.on ? (
+        <StyledModal>{modalStore.modalState.text}</StyledModal>
+      ) : (
+        ''
+      )}
     </>
   );
 });

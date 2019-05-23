@@ -1,13 +1,10 @@
 import React, {
   FunctionComponent,
   useState,
-  useEffect,
-  Fragment,
   SyntheticEvent,
   useContext
 } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import Button from '../../styled/Button';
 import { observer } from 'mobx-react-lite';
 import getData from '../../util/getData';
 import StyledInput from '../../styled/StyledInput';
@@ -27,7 +24,6 @@ const SearchBar: FunctionComponent<RouteComponentProps> = observer(
           }
         })
         .catch(err => {
-          console.log(err);
           modalStore.setModalState(`${pokemonName} wasn't found!`);
         });
     };
