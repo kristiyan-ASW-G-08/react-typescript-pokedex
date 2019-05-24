@@ -21,7 +21,7 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
       console.log(data);
       setPokemon(data);
     });
-  },[]);
+  }, [pokemonName]);
   return (
     <>
       {pokemon ? (
