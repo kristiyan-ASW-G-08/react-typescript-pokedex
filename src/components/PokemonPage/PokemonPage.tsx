@@ -1,13 +1,14 @@
-import React, { FunctionComponent, useState, useEffect, Fragment } from 'react';
-import PokemonFull from '../../interfaces/PokemonFull';
-import StyledPokemonPage from '../../styled/StyledPokemonPage';
-import Loader from '../../styled/Loader';
-import getData from '../../util/getData';
-import Stat from '../../styled/Stat';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import Card from '../../styled/Card';
-import Image from '../../styled/Image';
-import TypesContainer from './TypesContainer/TypesContainer';
+import React, { FunctionComponent, useState, useEffect, Fragment } from "react";
+import PokemonFull from "../../interfaces/PokemonFull";
+import StyledPokemonPage from "../../styled/StyledPokemonPage";
+import Loader from "../../styled/Loader";
+import getData from "../../util/getData";
+import Stat from "../../styled/Stat";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import Card from "../../styled/Card";
+import Image from "../../styled/Image";
+import TypesContainer from "./TypesContainer/TypesContainer";
+import StatsContainer from "./StatsContainer/StatsContainer";
 interface MatchProps {
   pokemonName: string;
 }
@@ -39,7 +40,7 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
           <Card grid={true}>
             {Object.entries(pokemon.sprites).map(sprite => {
               if (sprite[1]) {
-                const spriteName = sprite[0].split('_').join(' ');
+                const spriteName = sprite[0].split("_").join(" ");
                 return (
                   <Fragment key={sprite[0]}>
                     <Image>
@@ -50,6 +51,9 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
                 );
               }
             })}
+          </Card>
+          <Card>
+            <StatsContainer stats={pokemon.stats} />
           </Card>
         </StyledPokemonPage>
       ) : (
