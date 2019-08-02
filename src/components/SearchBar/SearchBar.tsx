@@ -3,16 +3,16 @@ import React, {
   useState,
   SyntheticEvent,
   useContext
-} from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
-import getData from '../../util/getData';
-import StyledInput from '../../styled/StyledInput';
-import SearchBarButton from '../../styled/SearchBarButton';
-import RootStoreContext from '../../stores/RootStore';
+} from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import getData from "util/getData";
+import StyledInput from "styled/StyledInput";
+import SearchBarButton from "styled/SearchBarButton";
+import RootStoreContext from "stores/RootStore";
 const SearchBar: FunctionComponent<RouteComponentProps> = observer(
   ({ history }) => {
-    const [pokemonName, setPokemonName] = useState<string>('');
+    const [pokemonName, setPokemonName] = useState<string>("");
     const { modalStore } = useContext(RootStoreContext);
     const submitHandler = (e: SyntheticEvent) => {
       e.preventDefault();

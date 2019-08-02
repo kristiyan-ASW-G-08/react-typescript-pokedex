@@ -1,18 +1,17 @@
-import { createContext } from 'react';
-import { observable, action } from 'mobx';
-import { persist, create } from 'mobx-persist';
-import ModalState from '../interfaces/ModalState';
-import defaultModalState from './defaultModalState';
+import { createContext } from "react";
+import { observable, action } from "mobx";
+import ModalState from "interfaces/ModalState";
+import defaultModalState from "stores//defaultModalState";
 class ModalStore {
-  @observable public modalState: ModalState = {
+  @observable modalState: ModalState = {
     on: false,
-    text: ''
+    text: ""
   };
-  @action public setModalState(text: string): void {
+  @action setModalState(text: string): void {
     this.modalState.text = text;
     this.modalState.on = true;
   }
-  @action public resetModalState(): void {
+  @action resetModalState(): void {
     this.modalState = defaultModalState;
   }
 }

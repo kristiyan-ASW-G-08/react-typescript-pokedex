@@ -1,7 +1,6 @@
-import React, { FunctionComponent } from 'react';
-import NavItem from './NavItem';
-import StyledNavbar from '../../styled/StyledNavbar';
-import SearchBar from '../SearchBar/SearchBar';
+import React, { FunctionComponent } from "react";
+import StyledNavbar from "styled/StyledNavbar";
+import SearchBar from "components/SearchBar/SearchBar";
 const Navbar: FunctionComponent = () => {
   return (
     <StyledNavbar>

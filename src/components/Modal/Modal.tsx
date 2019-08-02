@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useContext, useEffect } from 'react';
-import StyledNavbar from '../../styled/StyledNavbar';
-import { observer } from 'mobx-react-lite';
-import RootStoreContext from '../../stores/RootStore';
-import StyledModal from '../../styled/StyledModal';
+import React, { FunctionComponent, useContext, useEffect } from "react";
+import StyledNavbar from "styled/StyledNavbar";
+import { observer } from "mobx-react-lite";
+import RootStoreContext from "stores/RootStore";
+import StyledModal from "styled/StyledModal";
 const Modal: FunctionComponent = observer(() => {
   const { modalStore } = useContext(RootStoreContext);
   useEffect(() => {
@@ -15,7 +15,7 @@ const Modal: FunctionComponent = observer(() => {
       {modalStore.modalState.on ? (
         <StyledModal>{modalStore.modalState.text}</StyledModal>
       ) : (
-        ''
+        ""
       )}
     </>
   );

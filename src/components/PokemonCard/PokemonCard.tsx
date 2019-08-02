@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { observer } from 'mobx-react-lite';
-import Pokemon from '../../interfaces/Pokemon';
-import StyledPokemonCard from '../../styled/StyledPokemonCard';
-import { Link } from 'react-router-dom';
-import getId from '../../util/getId';
+import React, { FunctionComponent } from "react";
+import { observer } from "mobx-react-lite";
+import Pokemon from "interfaces/Pokemon";
+import StyledPokemonCard from "styled/StyledPokemonCard";
+import { Link } from "react-router-dom";
+import getId from "util/getId";
 interface PokemonCardProps extends Pokemon {
   key: string;
 }

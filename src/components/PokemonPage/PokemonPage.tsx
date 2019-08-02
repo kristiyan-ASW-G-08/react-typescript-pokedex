@@ -1,15 +1,14 @@
 import React, { FunctionComponent, useState, useEffect, Fragment } from "react";
-import PokemonFull from "../../interfaces/PokemonFull";
-import StyledPokemonPage from "../../styled/StyledPokemonPage";
-import Loader from "../../styled/Loader";
-import getData from "../../util/getData";
-import Stat from "../../styled/Stat";
+import StyledPokemonPage from "styled/StyledPokemonPage";
+import Loader from "styled/Loader";
+import getData from "util/getData";
+import Stat from "styled/Stat";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import Card from "../../styled/Card";
-import Image from "../../styled/Image";
-import TypesContainer from "./TypesContainer/TypesContainer";
-import StatsContainer from "./StatsContainer/StatsContainer";
-import MovesContainer from "./MovesContainer";
+import Card from "styled/Card";
+import Image from "styled/Image";
+import TypesContainer from "components/PokemonPage/TypesContainer/TypesContainer";
+import StatsContainer from "components/PokemonPage/StatsContainer/StatsContainer";
+import MovesContainer from "components/PokemonPage/MovesContainer";
 
 interface MatchProps {
   pokemonName: string;
