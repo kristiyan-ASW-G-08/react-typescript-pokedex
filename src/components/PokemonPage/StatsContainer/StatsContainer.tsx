@@ -1,18 +1,12 @@
 import React, { FunctionComponent, useState, useEffect, Fragment } from "react";
 import PokemonStat from "../../../interfaces/PokemonStat";
 import StyledStatsContainer from "../../../styled/StyledPokemonCard";
-import Button from "../../../styled/Button";
 import { Bar, Polar } from "react-chartjs-2";
 
 interface StatsContainerProps {
   stats: PokemonStat[];
 }
 const StatsContainer: FunctionComponent<StatsContainerProps> = ({ stats }) => {
-  console.log(stats);
-  console.log(
-    stats.map(stat => stat.stat.name),
-    stats.map(stat => stat.base_stat)
-  );
   const data = {
     labels: stats.map(stat => stat.stat.name),
     datasets: [

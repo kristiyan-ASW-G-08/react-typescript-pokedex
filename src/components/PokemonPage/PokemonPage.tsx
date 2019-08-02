@@ -9,6 +9,8 @@ import Card from "../../styled/Card";
 import Image from "../../styled/Image";
 import TypesContainer from "./TypesContainer/TypesContainer";
 import StatsContainer from "./StatsContainer/StatsContainer";
+import MovesContainer from "./MovesContainer";
+
 interface MatchProps {
   pokemonName: string;
 }
@@ -19,7 +21,6 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
   useEffect(() => {
     const url: string = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
     getData(url).then(data => {
-      console.log(data);
       setPokemon(data);
     });
   }, [pokemonName]);
@@ -54,6 +55,12 @@ const PokemonPage: FunctionComponent<PokemonPageProps> = ({ match }) => {
           </Card>
           <Card>
             <StatsContainer stats={pokemon.stats} />
+          </Card>
+          <Card>
+            <MovesContainer
+              moves={pokemon.moves}
+              type={pokemon.types[0].type.name}
+            />
           </Card>
         </StyledPokemonPage>
       ) : (
