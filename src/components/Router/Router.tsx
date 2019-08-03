@@ -1,6 +1,5 @@
 import React, { Fragment, lazy, Suspense, FunctionComponent } from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import Grid from "styled/Grid";
 import Loader from "styled/Loader";
 import Navbar from "components/Navbar/Navbar";
 import Modal from "components/Modal/Modal";

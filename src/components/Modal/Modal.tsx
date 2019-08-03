@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useContext, useEffect } from "react";
-import StyledNavbar from "styled/StyledNavbar";
 import { observer } from "mobx-react-lite";
 import RootStoreContext from "stores/RootStore";
 import StyledModal from "styled/StyledModal";
