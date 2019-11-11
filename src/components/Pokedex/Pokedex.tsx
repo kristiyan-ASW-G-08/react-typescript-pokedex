@@ -1,26 +1,43 @@
 import React, {
   FunctionComponent,
   useEffect,
-  useContext,
   useState,
+  useRef,
   Suspense,
   lazy
 } from "react";
-import RootStoreContext from "stores/RootStore";
 import { observer } from "mobx-react-lite";
 import Pokemon from "interfaces/Pokemon";
 import Loader from "styled/Loader";
-import ButtonsContainer from "styled/ButtonsContainer";
+import Container from "styled/Container";
 import Button from "styled/Button";
+import useIntersection from "hooks/useIntersection";
+import getData from "util/getData";
 const PokemonCardsContainer = lazy(() =>
   import("components/PokemonCardsContainer/PokemonCardsContainer")
 );
 const Pokedex: FunctionComponent = observer(() => {
-  const { pokedexStore } = useContext(RootStoreContext);
+  const [nextPage, setNextPage] = useState<string>(
+    `https://pokeapi.co/api/v2/pokemon`
+  );
+  const nextPageRef = useRef(nextPage);
   const [pokedex, setPokedex] = useState<Pokemon[]>([]);
+  const pokedexRef = useRef(pokedex);
+
+  const loadNext = (): void => {
+    getData(nextPageRef.current).then(({ next, results }) => {
+      setPokedex([...pokedexRef.current, ...results]);
+      if (next) {
+        setNextPage(next);
+      }
+    });
+  };
+
   useEffect(() => {
-    pokedexStore.getCurrentPage(setPokedex);
-  }, [pokedexStore.pokedexPage.length === 0]);
+    nextPageRef.current = nextPage;
+    pokedexRef.current = pokedex;
+  }, [nextPage, pokedex]);
+  const { setElement } = useIntersection(loadNext);
   return (
     <>
       {pokedex && pokedex.length > 0 ? (
@@ -30,32 +47,16 @@ const Pokedex: FunctionComponent = observer(() => {
       ) : (
         <Loader />
       )}
-      <ButtonsContainer>
-        {pokedexStore.previousUrl !== "" ? (
-          <Button
-            onClick={() => {
-              pokedexStore.decrementPage();
-              pokedexStore.getCurrentPage(setPokedex);
-            }}
-          >
-            Previous{" "}
+
+      <Container>
+        {nextPage !== "" ? (
+          <Button ref={(e: HTMLButtonElement) => setElement(e)}>
+            Loading{" "}
           </Button>
         ) : (
           ""
         )}
-        {pokedexStore.nextUrl !== "" ? (
-          <Button
-            onClick={() => {
-              pokedexStore.incrementPage();
-              pokedexStore.getCurrentPage(setPokedex);
-            }}
-          >
-            Next{" "}
-          </Button>
-        ) : (
-          ""
-        )}
-      </ButtonsContainer>
+      </Container>
     </>
   );
 });
